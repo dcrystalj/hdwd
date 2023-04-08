@@ -1,0 +1,2 @@
+hdwallet==2.2.1
+btc-hd-wallet==0.1.1
