@@ -74,23 +74,22 @@ Select your mnemonic language:
 """)
         command = int(input())
 
-        if command != 4:
-            print("\n:: Enter account index: ")
-            index = int(input())
+        if command >= 4:
+            break
 
-        match command:
-            case 0:
-                print(get_new_mnemonic(words, language, passphrase, index))
-            case 1:
-                print(get_account_private_key(words, language, passphrase, index))
-            case 2:
-                print(get_account_public_key(words, language, passphrase, index))
-            case 3:
-                print("\n:: How many addresses would you like to generate: ")
-                n = int(input())
-                print(*get_receiving_addresses(words, language, passphrase, index, n), sep="\n")
-            case _:
-                break
+        print("\n:: Enter account index: ")
+        index = int(input())
+
+        if command == 0:
+            print(get_new_mnemonic(words, language, passphrase, index))
+        elif command == 1:
+            print(get_account_private_key(words, language, passphrase, index))
+        elif command == 2:
+            print(get_account_public_key(words, language, passphrase, index))
+        elif command == 3:
+            print("\n:: How many addresses would you like to generate: ")
+            n = int(input())
+            print(*get_receiving_addresses(words, language, passphrase, index, n), sep="\n")
 
 
 if __name__ == '__main__':
